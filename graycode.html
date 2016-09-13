@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+   Programmer : Maya Ahmed
+   File: graycode.html
+   This file contains Javascript code to generate the gray code for a given n.
+   Date: 8 July 2016 -->
+
+<html>
+<head>
+
+<script type="text/javascript">
+ 
+
+function run(){ 
+    var n = parseInt (document.input.number.value);
+	if (isNaN (n))
+	   document.write("Error reading input.");
+if(n>0){
+       graycode(n);}else{
+          document.write("Error! Please, input an integer greater than zero");}
+} //  end of function run
+
+
+function graycode(n){
+  var m = 1;
+  var r = Math.pow(2,n);
+
+// initialize graycode
+  var  graycodeArray = new Array(2);
+     for(i=0;i<2;i++)
+     graycodeArray[i]= new Array(1);
+     graycodeArray[0][0]= 0;
+     graycodeArray[1][0] = 1;
+
+
+// Call function recursively  
+  if(n>1){
+      for(k=1;k<n;k++){m=2*m;
+      graycodeArray =   buildGraycode(graycodeArray,k,m);}}
+
+// Print graycode
+     for(i=0;i<r;i++){
+          for(j=0;j<n;j++){
+             document.write(graycodeArray[i][j]);} document.write("<br/>");}
+
+}//end of graycode function
+
+
+function  buildGraycode(oldArray,p,q){
+  var newArray =  new Array(2*q);
+     
+      for(i=0;i<2*q;i++)
+      newArray[i]= new Array(p+1);
+
+ // first half of gray code
+      for(i=0; i<q; i++){
+           newArray[i][0] = 0;
+              for(j=1; j<p+1; j++)
+              newArray[i][j] = oldArray[i][j-1];}
+
+// second half of gray code 
+       for(i=0; i<q; i++){
+         newArray[q+i][0] = 1;
+          for(j=1; j<p+1; j++)
+            newArray[q+i][j] = oldArray[q-i-1][j-1];}
+
+return newArray;
+
+}//end of fn
+
+
+</script>
+</head>
+
+<body>
+<p> <form name=input>
+     <p>Enter an integer greater than zero:</p>
+     <p> <input type=text name=number>
+      <input type=button value="Submit" onClick="run();"> </p>
+    </form></p>
+
+</body>
+</html>
+
