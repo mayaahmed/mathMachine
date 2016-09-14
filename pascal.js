@@ -1,15 +1,22 @@
 
 var output= document.getElementById('outputDiv');
-
+var errorString="";
 run();
 
 function run(){ 
     var n = parseInt (document.input.input.value);
-	if (isNaN (n))
-	   document.write("Error reading input.");
-       if(n>0){
-        pascalTriangle(n);}else{
-           document.write("Error! Type an integer greater than zero");}
+	if (isNaN (n)){
+      errorString="Error reading input.";
+      output.innerHTML=errorString;
+    }
+  
+    else if(n>0){
+        pascalTriangle(n);}
+    else{
+      errorString="Error! Type an integer greater than zero";
+      output.innerHTML=errorString;
+    }
+          
 } //  end of function run
 
 
