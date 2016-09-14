@@ -15,7 +15,7 @@
        
         <script src="general.js"></script>
 		<link rel="stylesheet" type="text/css" href="general.css">
-        <link rel="stylesheet" type="text/css" href="graycode.css">
+        <link rel="stylesheet" type="text/css" href="pascal.css">
  </head>
 
 	<body>
@@ -23,7 +23,7 @@
           <div id="topStuff">
             <header id="top_header">
 				<p>Math Machine</p>
-                <p id="flag"> Gray Code </p>  
+                <p id="flag"> Collatz Sequence </p>  
 			</header>
 			<nav id="top_menu">
 			 <ul>
@@ -34,12 +34,13 @@
                  <div class="dropdown">
                    <button onclick="myFunction()" class="dropbtn">Function</button>
                    <div id="myDropdown" class="dropdown-content">
-                     <a href="index.html">Graphing Calculator</a>
-                     <a href="pascalIndex.html">Pascal's Triangle</a>
+                     <a href="index.html">Graphing Calculator </a>
+                     <a href="pascalIndex.html">Pascal's Triangle </a>
                      <a href="graycodeIndex.html"> Gray Code </a> 
                      <a href="magicsquareIndex.html"> Magic Square </a> 
-                     <a href="collatzIndex.html">Collatz Sequence </a> 
+                     <a href="collatzIndex.html"> Collatz Sequences </a> 
                      <a href="permutationsIndex.html">Permutations </a> 
+                     
                     
                    </div>
                  </div>
@@ -64,14 +65,16 @@
 <div id="inputDiv">
   <form name=input>
      Enter an integer greater than zero
-      <input type=text name=number id="input" value="3">
+      <input type=text name=number id="input" value="15">
      <input id="submitButton" type=button onclick="run()" value="submit">
   
     </form>
 </div>
  
 
-<div id="outputDiv"></div>  
+<div id="outputDiv">
+
+</div>  
 
 
 
@@ -83,7 +86,7 @@
 
 
  
- <script src="graycode.js"></script>
+ <script src="collatz.js"></script>
       
 </body>
 </html>
